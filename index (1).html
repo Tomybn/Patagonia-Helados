@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helados Patagonia</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(to right, #2d8fdd, #6ae3d9);
+            padding: 2rem 1rem;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .item:hover {
+            transform: scale(1.05);
+        }
+        .item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+        .item-name {
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 99;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            margin: 5% auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .modal img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Helados Patagonia</header>
+
+    <div class="grid">
+        <div class="item" onclick="openModal(this)">
+            <img src="https://drive.google.com/uc?export=view&id=1YmUzkGhMcRA_giWioJIMcAOe7m_13Qzm" alt="Frutilla">
+            <div class="item-name">Frutilla</div>
+        </div>
+        <div class="item" onclick="openModal(this)">
+            <img src="https://drive.google.com/uc?export=view&id=1n68R46DWV3dYbT17FYkWptcKZcAfFbMg" alt="Chocolate">
+            <div class="item-name">Chocolate</div>
+        </div>
+        <div class="item" onclick="openModal(this)">
+            <img src="https://drive.google.com/uc?export=view&id=1OpVL6I0CPdfqcyAeLJ7P0sN2q6fSSSPG" alt="Limón">
+            <div class="item-name">Limón</div>
+        </div>
+    </div>
+
+    <a class="whatsapp-button" href="https://wa.me/56990163506" target="_blank">Pedir por WhatsApp</a>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script>
+        function openModal(element) {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modal-img').src = element.querySelector('img').src;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
